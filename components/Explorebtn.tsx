@@ -10,7 +10,7 @@ const Explorebtn = () => {
   };
 
   return (
-    <button type="button" id="button" className="mt-7 mx-auto btn" onClick={handleClick}>
+    <button type="button" id="button" className="mt-7 mx-auto btn flex bg-background p-2 rounded-2xl" onClick={handleClick}>
       Explore Now
       <Image src="/icons/arrow-down.svg" alt="arrow-down" width={24} height={24}/>
     </button>
