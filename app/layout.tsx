@@ -3,6 +3,8 @@ import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 import "./globals.css";
 import Waves from "@/components/Waves";
 import Navbar from "@/components/Navbar";
+import { PostHogProvider } from "./providers/PostHogProvider";
+
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-geist-sans",
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${schibstedGrotesk.variable} ${martianMono.variable} antialiased`}
       >
+        <PostHogProvider />
         {/* ensure main content is positioned and stacked above the waves */}
         <Navbar/>
         <main className="relative z-10">
