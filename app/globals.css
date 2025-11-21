@@ -270,4 +270,9 @@
       }
     }
   }
+
+  /* reusable button utility */
+  .btn {
+    @apply bg-primary hover:bg-primary/90 cursor-pointer items-center justify-center rounded-[6px] px-4 py-2.5 text-lg font-semibold text-white;
+  }
 }
