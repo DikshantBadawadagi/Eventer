@@ -1,8 +1,13 @@
 import EventCard from '@/components/EventCard'
 import Explorebtn from '@/components/Explorebtn'
-import { events } from '@/lib/contants'
+import { IEvent } from '@/database';
 
-const page = () => {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const page = async () => {
+
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const {events} = await response.json();
   return (
     <>
       {/* Hero: full viewport, centered content */}
@@ -18,7 +23,7 @@ const page = () => {
         <div className='space-y-2'>
           <h3>Featured Events</h3>
           <ul className='events'>
-            {events.map((item) => (
+            {events && events.length > 0 && events.map((item : IEvent) => (
               <li key={item.title}>
                 <EventCard {...item} />
               </li>
