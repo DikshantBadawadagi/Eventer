@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
     ]
   },
   /* config options here */
+   experimental: {
+    cacheComponents: true,   // ✅ Required for "use cache"
+  },
 
   async rewrites() {
     return [

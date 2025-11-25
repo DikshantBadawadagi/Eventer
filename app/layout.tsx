@@ -4,6 +4,7 @@ import "./globals.css";
 import Waves from "@/components/Waves";
 import Navbar from "@/components/Navbar";
 import { PostHogProvider } from "./providers/PostHogProvider";
+import { Suspense } from "react";
 
 
 const schibstedGrotesk = Schibsted_Grotesk({
@@ -37,19 +38,22 @@ export default function RootLayout({
         <main className="relative z-10">
           {children}
         </main>
-        <Waves
-          lineColor="#ffffff"
-          backgroundColor="transarent"
-          waveSpeedX={0.02}
-          waveSpeedY={0.01}
-          waveAmpX={40}
-          waveAmpY={20}
-          friction={0.9}
-          tension={0.01}
-          maxCursorMove={120}
-          xGap={12}
-          yGap={36}
-        />
+        <Suspense fallback={null}>
+          <Waves
+            lineColor="#ffffff"
+            backgroundColor="transarent"
+            waveSpeedX={0.02}
+            waveSpeedY={0.01}
+            waveAmpX={40}
+            waveAmpY={20}
+            friction={0.9}
+            tension={0.01}
+            maxCursorMove={120}
+            xGap={12}
+            yGap={36}
+          />
+        </Suspense>
+        
       </body>
     </html>
   );
